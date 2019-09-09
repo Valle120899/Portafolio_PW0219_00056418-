@@ -1,45 +1,46 @@
 main {
   @include set-dimensions(50%, auto);
-
   display: flex;
   flex-direction: column;
   flex-flow: wrap;
   justify-content: center;
   align-items: center;
-}
 
-main > img {
-  @include set-dimensions(50%, auto);
-  margin: 1em;
-  background: rgba(255, 255, 255, 0.5);
-  border-radius: 5px;
-}
-main hr {
-  @include set-dimensions(75%, 7px);
+  > img {
+    @include set-dimensions(50%, auto);
+    margin: 1em;
+    background: rgba($color, 0.5);
+    border-radius: 5px;
+  }
 
-  background: $color-secondary;
-  border-radius: 5px;
-  border: none;
-}
+  hr {
+    @include set-dimensions(75%, 7px);
 
-main .logos {
-  @include set-dimensions(100%, auto);
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-}
+    background: $color-secondary;
+    border-radius: 5px;
+    border: none;
+  }
 
-.logos > img {
-  @include set-dimensions(5em, 5em);
+  .logos {
+    @include set-dimensions(100%, auto);
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
 
-  object-fit: cover;
+    > img {
+      @include set-dimensions(5em, 5em);
 
-  margin: 0.5em;
-  background: $color;
-  border: 1px solid $color-secondary;
-  border-radius: 100%;
-  opacity: 0.7;
-}
-.logos > img:hover {
-  opacity: 1;
+      object-fit: cover;
+
+      margin: 0.5em;
+      background: $color;
+      border: 1px solid $color-secondary;
+      border-radius: 100%;
+      opacity: 0.7;
+
+      & > img:hover {
+        opacity: 1;
+      }
+    }
+  }
 }
