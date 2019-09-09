@@ -1,0 +1,24 @@
+$color: white;
+$color-secondary: black;
+
+@mixin set-dimensions($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+body {
+  @include set-dimensions(auto, 100vh);
+
+  box-sizing: border-box;
+  overflow: hidden;
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-vnl0lC7FBMxRqd16vxt2S1MdqmxwSYRr1T3ppDRA8pq6PZqjzA");
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  padding: 1em 5%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
