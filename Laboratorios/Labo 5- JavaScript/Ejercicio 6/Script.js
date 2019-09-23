@@ -1,14 +1,11 @@
 function seis(a) {
   for (let i = 0; i < a.length; i++) {
-    b = a[0];
-
-    if (a[i] < b) {
-      b = a[i];
-    } else {
-      if (a[i] > b) {
-        b = b;
+    for (let j = 0; i < a.length - i - 1; j++) {
+      if (a[i] < a[i + 1]) {
+        c = a[j + 1];
+        a[j + 1] = a[j];
+        a[j] = c;
       }
     }
   }
-  return a;
 }
