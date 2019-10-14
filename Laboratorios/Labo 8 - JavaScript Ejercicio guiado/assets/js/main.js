@@ -1,5 +1,5 @@
 var rows = [];
-
+var z = true;
 var counterId = 0;
 var parseLate_switch = value => {
   if (value) {
@@ -20,7 +20,7 @@ function AddRow(carnet, schedule, late, tBody) {
     schedule: schedule,
     late: late
   });
-
+  console.log(rows);
   newRow.innerHTML = `
   <td><b>${carnet}</b></td>
   <td><b>${schedule}</b></td>
@@ -28,6 +28,10 @@ function AddRow(carnet, schedule, late, tBody) {
   <td><b>${late}</b></td>`;
 
   var cellContainer = document.createElement("td");
+
+  var Tarea = document.createElement("td");
+  var Tarea1 = document.createElement("input");
+  Tarea1.classList.add("input");
 
   var deleteButton = document.createElement("button");
   deleteButton.classList.add("btn", "btn-danger");
@@ -37,21 +41,29 @@ function AddRow(carnet, schedule, late, tBody) {
   deleteButton.addEventListener("click", event => {
     //console.log(event.srcElement.value);
     var idElement = event.srcElement.value;
-
     var trToDelete = document.querySelector(`button[value='${idElement}']`)
       .parentElement.parentElement;
+    var x = Tarea1.value;
+    var y = document.querySelector(`button[value='${idElement}']`).parentElement
+      .parentElement.firstChild.textContent;
 
-    tBody.removeChild(trToDelete);
-    rows.forEach((item, index) => {
-      if (item.id == idElement) {
-        rows.splice(index, 1);
-      }
-    });
+    console.log(y);
+    if (x == y) {
+      tBody.removeChild(trToDelete);
+      rows.forEach((item, index) => {
+        if (item.id == idElement) {
+          rows.splice(index, 1);
+        }
+      });
+    } else {
+      alert("No coincide el carnet.");
+    }
   });
 
+  Tarea.appendChild(Tarea1);
   cellContainer.appendChild(deleteButton);
   newRow.appendChild(cellContainer);
-
+  newRow.appendChild(Tarea);
   tBody.appendChild(newRow);
   counterId++;
 }
