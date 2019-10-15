@@ -45,7 +45,7 @@ function AddRow(carnet, schedule, late, tBody) {
       .parentElement.parentElement;
     var x = Tarea1.value;
     var y = document.querySelector(`button[value='${idElement}']`).parentElement
-      .parentElement.firstChild.textContent;
+      .parentElement.childNodes[1].innerText;
 
     console.log(y);
     if (x == y) {
